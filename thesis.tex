@@ -1,5 +1,5 @@
 %******************************************************
-%*    LaTex-Vorlage für wissenschaftliche Arbeiten    *
+%*    LaTex-Vorlage fÃ¼r wissenschaftliche Arbeiten    *
 %*    --------------------------------------------    *
 %* 		  Autor: Jan Brennenstuhl (@jbspeakr)           *
 %*						 www.funkblocka.de                      *
@@ -13,55 +13,55 @@
 %******************************************************
 \documentclass[
   paper=A4, 			% Stellt auf A4-Papier ein
-  pagesize, 			% Diese Option reicht die Papiergröße an alle Ausgabeformate weiter
-  DIV=calc, 			% Für einen guten Satzspiegel
-  headings=small,	% Für etwas kleinere Überschriften
+  pagesize, 			% Diese Option reicht die PapiergrÃ¶ÃŸe an alle Ausgabeformate weiter
+  DIV=calc, 			% FÃ¼r einen guten Satzspiegel
+  headings=small,	% FÃ¼r etwas kleinere Ãœberschriften
   ngerman,  			% Neue Rechtschreibung (Silbentrennung)
-  12pt, 					% Schriftgröße
+  12pt, 					% SchriftgrÃ¶ÃŸe
 	listof=totoc, 
   bibliography=totoc, 
   index=totoc, 
-	BCOR5mm, 				% Formatregeln für Bindung
+	BCOR5mm, 				% Formatregeln fÃ¼r Bindung
 	]{scrbook}
 % ---------------------------------------------------------------
 % Unverzichtbare Pakte
-\usepackage[T1]{fontenc}			% für Texte mit Umlauten und/oder Akzenten 
+\usepackage[T1]{fontenc}			% fÃ¼r Texte mit Umlauten und/oder Akzenten 
 \usepackage[latin1]{inputenc}	% Silbentrennung und Eingabe von Umlauten
 \usepackage{fixltx2e}  				% Verbessert einige Kernkompetenzen von LaTeX2e
 \usepackage[ngerman]{babel} 	% Deutsch als Hauptsprache
 \usepackage{natbib} 
-\usepackage{graphicx} 				% Einfügen von Grafiken (.png)
-\usepackage[hyphens]{url} 		% URL's schöner formatieren
+\usepackage{graphicx} 				% EinfÃ¼gen von Grafiken (.png)
+\usepackage[hyphens]{url} 		% URL's schÃ¶ner formatieren
 \usepackage{hyperref}         % Hyperlinks im PDF-Dokument
-%\usepackage{pdfpages} 				% Einfügen von PDF-Dateien
+%\usepackage{pdfpages} 				% EinfÃ¼gen von PDF-Dateien
 % ---------------------------------------------------------------
 % Typografisch empfehlenswerte Pakete
 \usepackage{% 
-  ellipsis, % Korrigiert den Weißraum um Auslassungspunkte
-  ragged2e, % Ermöglicht Flattersatz mit Silbentrennung
- marginnote,% Für bessere Randnotizen mit \marginnote statt % \marginline
+  ellipsis, % Korrigiert den WeiÃŸraum um Auslassungspunkte
+  ragged2e, % ErmÃ¶glicht Flattersatz mit Silbentrennung
+ marginnote,% FÃ¼r bessere Randnotizen mit \marginnote statt % \marginline
 }
 \usepackage[tracking=true]{microtype}%
 \DeclareMicrotypeSet*[tracking]{my}% 
   { font = */*/*/sc/* }% 
-\SetTracking{ encoding = *, shape = sc }{ 45 }% alle Passagen in Kapitälchen automatisch leicht gesperrt.
+\SetTracking{ encoding = *, shape = sc }{ 45 }% alle Passagen in KapitÃ¤lchen automatisch leicht gesperrt.
 % ---------------------------------------------------------------
 % Verschiedene Schriften
 \usepackage{%
   lmodern, % A) Latin Modern Fonts sind die Nachfolger von Computer
             % Modern, den LaTeX-Standardfonts
-%  hfoldsty % B) Diese Schrift stellt alle Ziffern, außer
-            % im Mathemodus, auf Minuskel- oder Mediäval-Ziffern um.
+%  hfoldsty % B) Diese Schrift stellt alle Ziffern, auÃŸer
+            % im Mathemodus, auf Minuskel- oder MediÃ¤val-Ziffern um.
             % Wenn Ihre pdfs unscharf aussehen installieren Sie bitte
             % die cm-super-Fonts (Type1-Fonts).
-% charter   % C) Diese Zeile lädt die Charter als Schriftart
+% charter   % C) Diese Zeile lÃ¤dt die Charter als Schriftart
 }
 % ---------------------------------------------------------------
 % Glossar-Anpassungen
 
-\usepackage[style=long,border=none,header=plain,cols=3]{glossary}
+\usepackage[style=long3colheader]{glossaries}
 	\makeglossary
-	\renewcommand{\entryname}{Kürzel}
+	\renewcommand{\entryname}{KÃ¼rzel}
 	\renewcommand{\descriptionname}{Beschreibung}
 \usepackage{multibib}
 	\newcites{buch}{Literaturverzeichnis}
@@ -75,15 +75,15 @@
 \begin{document}
 \input{pdf-info}
 % ---------------------------------------------------------------
-% Titelblätter und Erklärung
+% TitelblÃ¤tter und ErklÃ¤rung
 \frontmatter
 	\pagenumbering{Roman}
-		% Titelblätter
+		% TitelblÃ¤tter
     \include{./intro/titel} 
     \thispagestyle{empty}
     \cleardoublepage
     
-    % Erklärung (Arbeit selbstständig verfasst)
+    % ErklÃ¤rung (Arbeit selbststÃ¤ndig verfasst)
     \include{./intro/erklaerung}  
     \thispagestyle{empty}
     \cleardoublepage
@@ -108,7 +108,7 @@
     \input{6-Sixth}
     \input{7-Seventh}
 % ---------------------------------------------------------------
-% Schlussteil - Römische Seitennummerierung
+% Schlussteil - RÃ¶mische Seitennummerierung
 \backmatter
 \pagenumbering{Roman}
 \setcounter{page}{11}
