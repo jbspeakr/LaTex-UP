@@ -26,7 +26,7 @@
 % ---------------------------------------------------------------
 % Unverzichtbare Pakte
 \usepackage[T1]{fontenc}			% für Texte mit Umlauten und/oder Akzenten 
-\usepackage[latin1]{inputenc}	% Silbentrennung und Eingabe von Umlauten
+\usepackage[utf8]{inputenc}	% Silbentrennung und Eingabe von Umlauten
 \usepackage{fixltx2e}  				% Verbessert einige Kernkompetenzen von LaTeX2e
 \usepackage[ngerman]{babel} 	% Deutsch als Hauptsprache
 \usepackage{natbib} 
@@ -63,17 +63,18 @@
 	\makeglossary
 	\renewcommand{\entryname}{Kürzel}
 	\renewcommand{\descriptionname}{Beschreibung}
+\bibliography{web,literature}
 \usepackage{multibib}
-	\newcites{buch}{Literaturverzeichnis}
+	\newcites{literature}{Literaturverzeichnis}
 	\newcites{web}{Web-Quellenverzeichnis}
 % ---------------------------------------------------------------
 % Einstellungen
 \pdfminorversion=6
-\input{hyphenation}
+\input{./etc/hyphenation}
 \graphicspath{{./gfx/}}
 % ---------------------------------------------------------------
 \begin{document}
-\input{pdf-info}
+\input{./etc/pdf-info}
 % ---------------------------------------------------------------
 % Titelblätter und Erklärung
 \frontmatter
@@ -89,10 +90,10 @@
     \cleardoublepage
     
     % Zitate
-    \include{quote}
+    \include{./intro/quote}
     
     % Abstract
-    \include{abstract}
+    \include{./intro/abstract}
     
     % Inhaltsverzeichnis
     \tableofcontents 
@@ -100,13 +101,13 @@
 % Hauptteil - Arabische Seitennummerierung
 \mainmatter % die eigentliche Arbeit
 		\pagenumbering{arabic}
-		\input{1-Einleitung}
-		\input{2-Second}
-    \input{3-Third}
-    \input{4-Fourth}
-    \input{5-Fifth}
-    \input{6-Sixth}
-    \input{7-Seventh}
+		\input{./sections/1-Einleitung}
+		\input{./sections/2-Second}
+    \input{./sections/3-Third}
+    \input{./sections/4-Fourth}
+    \input{./sections/5-Fifth}
+    \input{./sections/6-Sixth}
+    \input{./sections/7-Seventh}
 % ---------------------------------------------------------------
 % Schlussteil - Römische Seitennummerierung
 \backmatter
@@ -114,8 +115,8 @@
 \setcounter{page}{11}
 % ---------------------------------------------------------------
 % Quellenverzeichnisse
-\bibliographystylebuch{natdin}
-\bibliographybuch{buch}
+\bibliographystyleliterature{natdin}
+\bibliographyliterature{literature}
 \bibliographystyleweb{natdin}
 \bibliographyweb{web}
 % ---------------------------------------------------------------
