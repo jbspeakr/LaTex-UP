@@ -12,19 +12,6 @@
 %*             Teilen der Vorlage von Tino Weinkauf   *
 %******************************************************
 \documentclass[
-<<<<<<< HEAD
-  paper=A4, 			% Stellt auf A4-Papier ein
-  pagesize, 			% Diese Option reicht die Papiergröße an alle Ausgabeformate weiter
-  DIV=calc, 			% Für einen guten Satzspiegel
-  headings=small,	% Für etwas kleinere Überschriften
-  ngerman,  			% Neue Rechtschreibung (Silbentrennung)
-  12pt, 					% Schriftgröße
-	listof=totoc, 
-  bibliography=totoc, 
-  index=totoc, 
-	BCOR5mm, 				% Formatregeln für Bindung
-	]{scrbook}
-=======
   paper=A4, 		% Stellt auf A4-Papier ein
   pagesize, 		% Diese Option reicht die Papiergröße an alle Ausgabeformate weiter
   DIV=calc, 		% Für einen guten Satzspiegel
@@ -36,36 +23,25 @@
   index=totoc, 
   BCOR5mm, 			% Formatregeln für Bindung
 ]{scrbook}
->>>>>>> origin/develop
 % ---------------------------------------------------------------
 % Unverzichtbare Pakte
-\usepackage[T1]{fontenc}			% für Texte mit Umlauten und/oder Akzenten 
+\usepackage[T1]{fontenc}	% für Texte mit Umlauten und/oder Akzenten 
 \usepackage[utf8]{inputenc}	% Silbentrennung und Eingabe von Umlauten
-\usepackage{fixltx2e}  				% Verbessert einige Kernkompetenzen von LaTeX2e
+\usepackage{fixltx2e}  		% Verbessert einige Kernkompetenzen von LaTeX2e
 \usepackage[ngerman]{babel} 	% Deutsch als Hauptsprache
 \usepackage[ngerman]{translator}
 \usepackage{natbib} 
-\usepackage{graphicx} 				% Einfügen von Grafiken (.png)
-<<<<<<< HEAD
-\usepackage[hyphens]{url} 		% URL's schöner formatieren
-\usepackage{hyperref}         % Hyperlinks im PDF-Dokument
-%\usepackage{pdfpages} 				% Einfügen von PDF-Dateien
-% ---------------------------------------------------------------
-% Typografisch empfehlenswerte Pakete
-\usepackage{% 
-=======
+\usepackage{graphicx} 		% Einfügen von Grafiken (.png)
 \usepackage[acronym,toc,numberedsection,nonumberlist]{glossaries}
-\usepackage[hyphens]{url} 		% URL's schöner formatieren
-\usepackage{hyperref}         % Hyperlinks im PDF-Dokument
-
-%\usepackage{pdfpages} 				% Einfügen von PDF-Dateien
+\usepackage[hyphens]{url} 	% URL's schöner formatieren
+\usepackage{hyperref}           % Hyperlinks im PDF-Dokument
+%\usepackage{pdfpages} 		% Einfügen von PDF-Dateien
 % ---------------------------------------------------------------
 % Typografisch empfehlenswerte Pakete
 \usepackage{
->>>>>>> origin/develop
   ellipsis, % Korrigiert den Weißraum um Auslassungspunkte
   ragged2e, % Ermöglicht Flattersatz mit Silbentrennung
- marginnote,% Für bessere Randnotizen mit \marginnote statt % \marginline
+  marginnote,% Für bessere Randnotizen mit \marginnote statt % \marginline
 }
 \usepackage[tracking=true]{microtype}%
 \DeclareMicrotypeSet*[tracking]{my}% 
@@ -95,26 +71,12 @@
 
 % Glossar
 \include{./etc/glossary}
-
-<<<<<<< HEAD
-\usepackage[style=long3colheader]{glossaries}
-	\makeglossary
-	\renewcommand{\entryname}{Kürzel}
-	\renewcommand{\descriptionname}{Beschreibung}
-\bibliography{web,literature}
-\usepackage{multibib}
-	\newcites{literature}{Literaturverzeichnis}
-	\newcites{web}{Web-Quellenverzeichnis}
-=======
-%\renewcommand{\entryname}{Kürzel}
-%\renewcommand{\descriptionname}{Beschreibung}
 % ---------------------------------------------------------------
 % Quellen
 \bibliography{web,literature}
 \usepackage{multibib}
 \newcites{literature}{Literaturverzeichnis}
 \newcites{web}{Web-Quellenverzeichnis}
->>>>>>> origin/develop
 % ---------------------------------------------------------------
 % Einstellungen
 \pdfminorversion=6
@@ -127,37 +89,15 @@
 % ---------------------------------------------------------------
 % Hier startet der Inhalt
 \begin{document}
-<<<<<<< HEAD
-=======
 % Meta-Informationen für das PDF
->>>>>>> origin/develop
 \input{./etc/pdf-info}
 % ---------------------------------------------------------------
 % Titelblätter und Erklärung
 \frontmatter
-<<<<<<< HEAD
-	\pagenumbering{Roman}
-		% Titelblätter
-    \include{./intro/titel} 
-    \thispagestyle{empty}
-    \cleardoublepage
-    
-    % Erklärung (Arbeit selbstständig verfasst)
-    \include{./intro/erklaerung}  
-    \thispagestyle{empty}
-    \cleardoublepage
-    
-    % Zitate
-    \include{./intro/quote}
-    
-    % Abstract
-    \include{./intro/abstract}
-=======
 \pagenumbering{Roman}
 \include{./intro/titel} 
 \thispagestyle{empty}
 \cleardoublepage
->>>>>>> origin/develop
     
 % Erklärung (Arbeit selbstständig verfasst)
 \include{./intro/erklaerung}  
@@ -175,16 +115,6 @@
 % ---------------------------------------------------------------
 % Hauptteil - Arabische Seitennummerierung
 \mainmatter % die eigentliche Arbeit
-<<<<<<< HEAD
-		\pagenumbering{arabic}
-		\input{./sections/1-Einleitung}
-		\input{./sections/2-Second}
-    \input{./sections/3-Third}
-    \input{./sections/4-Fourth}
-    \input{./sections/5-Fifth}
-    \input{./sections/6-Sixth}
-    \input{./sections/7-Seventh}
-=======
 \pagenumbering{arabic}
 
 \input{./sections/1-Einleitung}
@@ -194,7 +124,6 @@
 \input{./sections/5-Fifth}
 \input{./sections/6-Sixth}
 \input{./sections/7-Seventh}
->>>>>>> origin/develop
 % ---------------------------------------------------------------
 % Schlussteil - Römische Seitennummerierung
 \backmatter
