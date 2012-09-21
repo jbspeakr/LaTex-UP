@@ -1,0 +1,19 @@
+#!/bin/sh
+bfname="`basename "$1" .tex`"
+biblit="`basename literature`"
+bibweb="`basename web`"
+
+echo "$bfname"
+echo "$biblit"
+echo "$bibweb"
+
+pdflatex "$1"
+bibtex "$biblit"
+bibtex "$bibweb"
+makeindex "$bfname".nlo -s nomencl.ist -o "$bfname".nls
+makeindex -s "$bfname".ist -t "$bfname".alg -o "$bfname".acr "$bfname".acn
+makeindex -s "$bfname".ist -t "$bfname".glg -o "$bfname".gls "$bfname".glo
+pdflatex "$1"
+pdflatex "$1"
+pdflatex "$1"
+okular "$bfname".pdf &
