@@ -1,128 +1,151 @@
 %******************************************************
-%*    LaTex-Vorlage für wissenschaftliche Arbeiten    *
+%*    LaTex-Vorlage fÃ¼r wissenschaftliche Arbeiten    *
 %*    --------------------------------------------    *
-%* 		  Autor: Jan Brennenstuhl (@jbspeakr)           *
-%*						 www.funkblocka.de                      *
-%* 		Version: 0.1								                    *
-%* 		  Datum: 07.09.2012							                *
-%*     Lizenz: CC BY-SA 3.0                           *
+%*      Autor: Jan Brennenstuhl (@jbspeakr)           *
+%*             www.funkblocka.de                      *
+%*                Version: 0.1                        *
+%*              Datum: 07.09.2012                     *
+%*            Lizenz: CC BY-SA 3.0                    *
 %******************************************************
 %*  Anmerkung: Unter Verwendung der Paket-            *
 %*             Empfehlungen von Georg Verweyen und    *
 %*             Teilen der Vorlage von Tino Weinkauf   *
 %******************************************************
 \documentclass[
-  paper=A4, 			% Stellt auf A4-Papier ein
-  pagesize, 			% Diese Option reicht die Papiergröße an alle Ausgabeformate weiter
-  DIV=calc, 			% Für einen guten Satzspiegel
-  headings=small,	% Für etwas kleinere Überschriften
-  ngerman,  			% Neue Rechtschreibung (Silbentrennung)
-  12pt, 					% Schriftgröße
-	listof=totoc, 
+  paper=A4, 		% Stellt auf A4-Papier ein
+  pagesize, 		% Diese Option reicht die PapiergrÃ¶ÃŸe an alle Ausgabeformate weiter
+  DIV=calc, 		% FÃ¼r einen guten Satzspiegel
+  headings=small,	% FÃ¼r etwas kleinere Ãœberschriften
+  ngerman,  		% Neue Rechtschreibung (Silbentrennung)
+  12pt, 			% SchriftgrÃ¶ÃŸe
+  listof=totoc, 
   bibliography=totoc, 
   index=totoc, 
-	BCOR5mm, 				% Formatregeln für Bindung
-	]{scrbook}
+  BCOR5mm, 			% Formatregeln fÃ¼r Bindung
+]{scrbook}
 % ---------------------------------------------------------------
 % Unverzichtbare Pakte
-\usepackage[T1]{fontenc}			% für Texte mit Umlauten und/oder Akzenten 
-\usepackage[latin1]{inputenc}	% Silbentrennung und Eingabe von Umlauten
+\usepackage[T1]{fontenc}			% fÃ¼r Texte mit Umlauten und/oder Akzenten 
+\usepackage[utf8]{inputenc}	% Silbentrennung und Eingabe von Umlauten
 \usepackage{fixltx2e}  				% Verbessert einige Kernkompetenzen von LaTeX2e
 \usepackage[ngerman]{babel} 	% Deutsch als Hauptsprache
+\usepackage[ngerman]{translator}
 \usepackage{natbib} 
-\usepackage{graphicx} 				% Einfügen von Grafiken (.png)
-\usepackage[hyphens]{url} 		% URL's schöner formatieren
+\usepackage{graphicx} 				% EinfÃ¼gen von Grafiken (.png)
+\usepackage[acronym,toc,numberedsection,nonumberlist]{glossaries}
+\usepackage[hyphens]{url} 		% URL's schÃ¶ner formatieren
 \usepackage{hyperref}         % Hyperlinks im PDF-Dokument
-%\usepackage{pdfpages} 				% Einfügen von PDF-Dateien
+
+%\usepackage{pdfpages} 				% EinfÃ¼gen von PDF-Dateien
 % ---------------------------------------------------------------
 % Typografisch empfehlenswerte Pakete
-\usepackage{% 
-  ellipsis, % Korrigiert den Weißraum um Auslassungspunkte
-  ragged2e, % Ermöglicht Flattersatz mit Silbentrennung
- marginnote,% Für bessere Randnotizen mit \marginnote statt % \marginline
+\usepackage{
+  ellipsis, % Korrigiert den WeiÃŸraum um Auslassungspunkte
+  ragged2e, % ErmÃ¶glicht Flattersatz mit Silbentrennung
+ marginnote,% FÃ¼r bessere Randnotizen mit \marginnote statt % \marginline
 }
 \usepackage[tracking=true]{microtype}%
 \DeclareMicrotypeSet*[tracking]{my}% 
   { font = */*/*/sc/* }% 
-\SetTracking{ encoding = *, shape = sc }{ 45 }% alle Passagen in Kapitälchen automatisch leicht gesperrt.
+\SetTracking{ encoding = *, shape = sc }{ 45 }% alle Passagen in KapitÃ¤lchen automatisch leicht gesperrt.
 % ---------------------------------------------------------------
 % Verschiedene Schriften
 \usepackage{%
   lmodern, % A) Latin Modern Fonts sind die Nachfolger von Computer
             % Modern, den LaTeX-Standardfonts
-%  hfoldsty % B) Diese Schrift stellt alle Ziffern, außer
-            % im Mathemodus, auf Minuskel- oder Mediäval-Ziffern um.
+%  hfoldsty % B) Diese Schrift stellt alle Ziffern, auÃŸer
+            % im Mathemodus, auf Minuskel- oder MediÃ¤val-Ziffern um.
             % Wenn Ihre pdfs unscharf aussehen installieren Sie bitte
             % die cm-super-Fonts (Type1-Fonts).
-% charter   % C) Diese Zeile lädt die Charter als Schriftart
+% charter   % C) Diese Zeile lÃ¤dt die Charter als Schriftart
 }
 % ---------------------------------------------------------------
 % Glossar-Anpassungen
+% Den Punkt am Ende jeder Beschreibung deaktivieren
+\renewcommand*{\glspostdescription}{}
 
-\usepackage[style=long,border=none,header=plain,cols=3]{glossary}
-	\makeglossary
-	\renewcommand{\entryname}{Kürzel}
-	\renewcommand{\descriptionname}{Beschreibung}
+% Glossar-Befehle anschalten
+\makeglossaries
+
+% Akronyme
+\include{./etc/acronym}
+
+% Glossar
+\include{./etc/glossary}
+
+%\renewcommand{\entryname}{KÃ¼rzel}
+%\renewcommand{\descriptionname}{Beschreibung}
+% ---------------------------------------------------------------
+% Quellen
+\bibliography{web,literature}
 \usepackage{multibib}
-	\newcites{buch}{Literaturverzeichnis}
-	\newcites{web}{Web-Quellenverzeichnis}
+\newcites{literature}{Literaturverzeichnis}
+\newcites{web}{Web-Quellenverzeichnis}
 % ---------------------------------------------------------------
 % Einstellungen
 \pdfminorversion=6
-\input{hyphenation}
+\input{./etc/hyphenation}
 \graphicspath{{./gfx/}}
 % ---------------------------------------------------------------
-\begin{document}
-\input{pdf-info}
+% Befehl fÃ¼r Ãœberschriften mit Untertitel
+\newcommand{\Chapter}[2]{\chapter[#1]{#1:\\#2}} 
+\newcommand{\Section}[2]{\section[#1]{#1:\\#2}}
 % ---------------------------------------------------------------
-% Titelblätter und Erklärung
+% Hier startet der Inhalt
+\begin{document}
+% Meta-Informationen fÃ¼r das PDF
+\input{./etc/pdf-info}
+% ---------------------------------------------------------------
+% TitelblÃ¤tter und ErklÃ¤rung
 \frontmatter
-	\pagenumbering{Roman}
-		% Titelblätter
-    \include{./intro/titel} 
-    \thispagestyle{empty}
-    \cleardoublepage
+\pagenumbering{Roman}
+\include{./intro/titel} 
+\thispagestyle{empty}
+\cleardoublepage
     
-    % Erklärung (Arbeit selbstständig verfasst)
-    \include{./intro/erklaerung}  
-    \thispagestyle{empty}
-    \cleardoublepage
-    
-    % Zitate
-    \include{quote}
-    
-    % Abstract
-    \include{abstract}
-    
-    % Inhaltsverzeichnis
-    \tableofcontents 
+% ErklÃ¤rung (Arbeit selbststÃ¤ndig verfasst)
+\include{./intro/erklaerung}  
+\thispagestyle{empty}
+\cleardoublepage
+
+% Zitate
+\include{./intro/quote}
+
+% Abstract
+\include{./intro/abstract}
+
+% Inhaltsverzeichnis
+\tableofcontents 
 % ---------------------------------------------------------------
 % Hauptteil - Arabische Seitennummerierung
 \mainmatter % die eigentliche Arbeit
-		\pagenumbering{arabic}
-		\input{1-Einleitung}
-		\input{2-Second}
-    \input{3-Third}
-    \input{4-Fourth}
-    \input{5-Fifth}
-    \input{6-Sixth}
-    \input{7-Seventh}
+\pagenumbering{arabic}
+
+\input{./sections/1-Einleitung}
+\input{./sections/2-Second}
+\input{./sections/3-Third}
+\input{./sections/4-Fourth}
+\input{./sections/5-Fifth}
+\input{./sections/6-Sixth}
+\input{./sections/7-Seventh}
 % ---------------------------------------------------------------
-% Schlussteil - Römische Seitennummerierung
+% Schlussteil - RÃ¶mische Seitennummerierung
 \backmatter
 \pagenumbering{Roman}
 \setcounter{page}{11}
 % ---------------------------------------------------------------
 % Quellenverzeichnisse
-\bibliographystylebuch{natdin}
-\bibliographybuch{buch}
+\bibliographystyleliterature{natdin}
+\bibliographyliterature{literature}
 \bibliographystyleweb{natdin}
 \bibliographyweb{web}
 % ---------------------------------------------------------------
-% Glossar
-\renewcommand{\glossaryname}{Glossar}
-\printglossary
-\addcontentsline{toc}{chapter}{Glossar}
+%Glossar ausgeben
+\printglossary[style=altlist,title=Glossar]
+
+%AbkÃ¼rzungen ausgeben
+\deftranslation[to=German]{Acronyms}{AbkÃ¼rzungsverzeichnis}
+\printglossary[type=\acronymtype,style=long]
 % ---------------------------------------------------------------
 % Anhang
 \appendix
