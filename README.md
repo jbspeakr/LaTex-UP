@@ -1,6 +1,6 @@
 LaTex-UP
 ========
-by @jbspeakr
+by [@jbspeakr](https://twitter.com/jbspeakr)
 
 Deutsch
 -------
