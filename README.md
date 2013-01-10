@@ -9,3 +9,4 @@ English
 -------
 LaTex Template for research papers at Potsdam University.
 
+by @jbspeakr
