@@ -1,6 +1,6 @@
 LaTex-UP
 ========
-by [@jbspeakr](https://twitter.com/jbspeakr)
+by [Jan Brennenstuhl](http://jan.brennenstuhl.me)
 
 Deutsch
 -------
